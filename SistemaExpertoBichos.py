@@ -109,7 +109,7 @@ class ventanaExperto:
 
 		bienvenida.geometry(str(wventana)+"x"+str(hventana)+"+"+str(pwidth)+"+"+str(pheight))
 
-		bg = tk.PhotoImage(file="Imagenes/Fondo.png")
+		bg = tk.PhotoImage(file="Imagenes/Fondo1.png")
 		bg_lbl = tk.Label(bienvenida, image=bg).place(x=-2, y=0)
 
 		ASD = base_temp.consulta("SELECT * FROM bichos")
@@ -276,7 +276,7 @@ class ventanaExperto:
 
 		ventana.geometry(str(wventana)+"x"+str(hventana)+"+"+str(pwidth)+"+"+str(pheight))
 
-		bg = tk.PhotoImage(file="Imagenes/Fondo.png")
+		bg = tk.PhotoImage(file="Imagenes/Fondo1.png")
 		bg_lbl = tk.Label(ventana, image=bg).place(x=-2, y=0)
 
 		label_titulo = tk.Label(ventana, text="Seleccione las caracteristicas de la Serpiente a Ingresar", font=("arial",20), background="#51524a", foreground="white")
@@ -428,7 +428,7 @@ class ventanaExperto:
 
 		ventana.geometry(str(wventana)+"x"+str(hventana)+"+"+str(pwidth)+"+"+str(pheight))
 
-		bg = tk.PhotoImage(file="Imagenes/Background4.png")
+		bg = tk.PhotoImage(file="Imagenes/Fondo1.png")
 		bg_lbl = tk.Label(ventana, image=bg).place(x=-2, y=0)
 
 		label_titulo = tk.Label(ventana, text="Seleccione las caracteristicas del Bicho", font=("Open Sans",20), background="#51524a", foreground="white")
