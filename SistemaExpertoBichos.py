@@ -5,6 +5,7 @@ from tkinter import filedialog
 import sqlConnector as sqlbd
 import cv2 as ocv
 import os 
+from tkinter import PhotoImage
 
 preguntas = ["¿Qué tamaño tiene?",
 			 "¿Cuántas patas tiene el bicho?",
@@ -370,11 +371,17 @@ class ventanaExperto:
 					lbl_especie = tkkk.Label(frame, text=Nombre, font=("arial",16), background="white")
 					lbl_especie.grid(row=1, column=0, padx=20, pady=10)
 
-					img23 = tk.PhotoImage(file="Imagenes/"+Nombre+".png")
+					img23 = tk.PhotoImage(file="Imagenes/"+Nombre+".png") ######################################
 
-					lbl_img = tkkk.Label(frame, image=img23)
-					lbl_img.image = img23
+					# Cambiar las proporciones de la imagen para hacerla más pequeña
+					nuevas_proporciones = 2  # Puedes ajustar este valor según tus necesidades
+					imagen_redimensionada = img23.subsample(nuevas_proporciones)
+
+					# Crear la etiqueta para mostrar la imagen redimensionada
+					lbl_img = tk.Label(frame, image=imagen_redimensionada)
+					lbl_img.image = imagen_redimensionada
 					lbl_img.grid(row=2, column=0, padx=10)
+
 
 					#print("Imagenes/"+nombre+".png")
 					frame.Descripcion = Descripcion
@@ -385,8 +392,8 @@ class ventanaExperto:
 			btn_explicacion = tkkk.Button(frame, text="Descripcion", command=lambda: self.ver_explicacion(frames), font=("arial",16))
 			btn_explicacion.grid(row=i*3, column=0, columnspan=3, padx=20, pady=20)
 
-			btn_salir = tkkk.Button(ventana, text="Volver", command= lambda: self.mostrar_ventana_usuario(), font=("arial",16))
-			btn_salir.grid(row=i*3+1, column=0, columnspan=3, padx=20, pady=20)
+			btn_salir = tkkk.Button(frame, text="Volver", command= lambda: self.mostrar_ventana_usuario(), font=("arial",16))
+			btn_salir.grid(row=i*3, column=1, columnspan=6, padx=22, pady=22)
 
 			self.vActual = ventana
 			self.vActual.update()
@@ -400,7 +407,7 @@ class ventanaExperto:
 				lbl_explicacion = tk.Label(frame, text="Descripcion: ", font=("arial",16), background="white")
 				lbl_explicacion.grid(row=0, column=3)
 
-				lbl_explicacion = tk.Label(frame, text=frame.Descripcion, font=("arial",11), background="white") #aquiii
+				lbl_explicacion = tk.Label(frame, text=frame.Descripcion, font=("arial",11), background="white",wraplength=500) #aquiii
 				lbl_explicacion.grid(row=1, column=3, rowspan=3)
 
 	def cerrar_ventana(ventana):
